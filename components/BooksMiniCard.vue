@@ -1,7 +1,7 @@
 <template>
   <div class="books-list">
-    <div v-for="(book, index) in booksArray" :key="index" class="book">
-      <template v-if="book.work.cover_id">
+    <template v-for="(book, index) in booksArray" :key="index">
+      <div class="book" v-if="book.work.cover_id">
         <img
           class="book-cover"
           :src="`https://covers.openlibrary.org/b/id/${book.work.cover_id}-M.jpg`"
@@ -19,8 +19,8 @@
             >{{ bookStatusText(index) }}</UButton
           >
         </div>
-      </template>
-    </div>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -65,6 +65,7 @@ export default {
   width: 250px;
   gap: 8px;
   border-radius: 4px;
+  padding: 8px 0px;
   box-shadow: 0px 1px 4px rgba(255, 255, 255, 0.07);
 }
 .book-cover {
@@ -72,5 +73,8 @@ export default {
 }
 .book-content {
   padding: 4px 8px;
+}
+.book-button {
+  padding: 8px 0px;
 }
 </style>
